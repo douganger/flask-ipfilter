@@ -6,12 +6,11 @@ Flask-IPFilter lets you set up an IP Whitelist to restrict access to your site
 to certain hosts and networks.
 """
 
-import pathlib
 from setuptools import setup
 
 setup(
     name="Flask-IPFilter",
-    version="0.0.1",
+    version="0.0.2",
     description="Limit access to a Flask website by IP address",
     long_description=__doc__,
     url="https://github.com/douganger/flask-ipfilter",
