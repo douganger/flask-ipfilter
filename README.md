@@ -1,4 +1,8 @@
-# README
+# Flask-IPFilter
+
+[![Build Status](https://travis-ci.org/douganger/flask-ipfilter.svg?branch=master)](https://travis-ci.org/douganger/flask-ipfilter)
+[![Documentation Status](https://readthedocs.org/projects/flask-ipfilter/badge/?version=latest)](https://flask-ipfilter.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbff22f2f804412790ee10601e8b6949)](https://www.codacy.com/app/douganger/flask-ipfilter)
 
 Flask-IPFilter is a simple Flask extension to limit access to a site to certain
 IP addresses. The current implementation is a minimal proof of concept with some
