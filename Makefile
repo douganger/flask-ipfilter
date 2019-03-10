@@ -22,5 +22,5 @@ pylint:
 	pylint test/*.py
 
 unittest:
-	python -m unittest
+	py.test test --cov=flask_ipfilter 
 
