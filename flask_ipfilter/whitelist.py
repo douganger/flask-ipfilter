@@ -2,6 +2,7 @@
 
 import ipaddress
 from flask import request
+from werkzeug.exceptions import Forbidden
 
 
 class Whitelist:
@@ -80,5 +81,4 @@ class Whitelist:
             ip_addr = request.remote_addr
 
         if not self.check(ip_addr):
-            return "Denied", 403
-        return None
+            raise Forbidden()

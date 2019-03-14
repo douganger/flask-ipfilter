@@ -10,7 +10,7 @@ from setuptools import setup
 
 setup(
     name="Flask-IPFilter",
-    version="0.0.2",
+    version="0.0.3",
     description="Limit access to a Flask website by IP address",
     long_description=__doc__,
     url="https://github.com/douganger/flask-ipfilter",
