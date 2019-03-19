@@ -3,6 +3,13 @@ Modules
 
 .. automodule:: flask_ipfilter
 
+ipfilter
+--------
+
+.. automodule:: flask_ipfilter.ipfilter
+    :members:
+    :show-inheritance:
+
 whitelist
 ---------
 

@@ -1,12 +1,9 @@
 # Flask-IPFilter
 
 [![Build Status](https://travis-ci.org/douganger/flask-ipfilter.svg?branch=master)](https://travis-ci.org/douganger/flask-ipfilter)
-[![Coverage
-Status](https://coveralls.io/repos/github/douganger/flask-ipfilter/badge.svg?branch=master)](https://coveralls.io/github/douganger/flask-ipfilter?branch=master)
-[![Documentation
-Status](https://readthedocs.org/projects/flask-ipfilter/badge/?version=latest)](https://flask-ipfilter.readthedocs.io/en/latest/?badge=latest)
-[![Codacy
-Badge](https://api.codacy.com/project/badge/Grade/fbff22f2f804412790ee10601e8b6949)](https://www.codacy.com/app/douganger/flask-ipfilter)
+[![Coverage Status](https://coveralls.io/repos/github/douganger/flask-ipfilter/badge.svg?branch=master)](https://coveralls.io/github/douganger/flask-ipfilter?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/flask-ipfilter/badge/?version=latest)](https://flask-ipfilter.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbff22f2f804412790ee10601e8b6949)](https://www.codacy.com/app/douganger/flask-ipfilter)
 
 Flask-IPFilter is a simple Flask extension to limit access to a site to certain
 IP addresses. The current implementation is a minimal proof of concept with some
@@ -27,12 +24,12 @@ in your application.
 
 ```python
 from flask import Flask
-from flask_ipfilter import Whitelist
+from flask_ipfilter import IPFilter, Whitelist
 
 app = Flask(__name__)
-ip_filter = Whitelist(app)
+ip_filter = IPFilter(app, ruleset=Whitelist())
 
-ip_filter.whitelist("127.0.0.1")
+ip_filter.ruleset.permit("127.0.0.1")
 
 @app.route("/")
 def route_test():

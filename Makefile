@@ -4,6 +4,9 @@ clean:
 	rm -rf docs/_build/* 
 	rm -rf .env
 
+distribution:
+	python setup.py sdist bdist_wheel
+
 documentation:
 	python -m sphinx -M html "docs" "docs/_build"
 
@@ -22,5 +25,5 @@ pylint:
 	pylint test/*.py
 
 unittest:
-	py.test test --cov=flask_ipfilter 
+	py.test test --disable-pytest-warnings --cov=flask_ipfilter 
 

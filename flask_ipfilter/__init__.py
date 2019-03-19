@@ -10,4 +10,5 @@ therefore appropriate only for applications that are running behind a trusted
 load balancer.
 """
 
+from flask_ipfilter.ipfilter import IPFilter
 from flask_ipfilter.whitelist import Whitelist
