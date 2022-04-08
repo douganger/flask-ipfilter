@@ -26,7 +26,7 @@ class Whitelist:
 
         :returns: True if access should be allowed and False otherwise.
         """
-        ip_addr = ipaddress.ip_address(ip_address)
+        ip_addr = ipaddress.ip_address(u''.__class__(ip_address))
 
         if ip_addr in self.permitted_hosts:
             return True
@@ -47,8 +47,8 @@ class Whitelist:
                             :class:`ip_network`.
         """
         try:
-            host = ipaddress.ip_address(ip_address)
+            host = ipaddress.ip_address(u''.__class__(ip_address))
             self.permitted_hosts.add(host)
-        except ValueError:
-            net = ipaddress.ip_network(ip_address)
+        except (ValueError, ipaddress.AddressValueError):
+            net = ipaddress.ip_network(u''.__class__(ip_address))
             self.permitted_networks.add(net)
