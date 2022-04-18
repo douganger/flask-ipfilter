@@ -13,3 +13,4 @@ load balancer.
 from flask_ipfilter.ipfilter import IPFilter
 from flask_ipfilter.whitelist import Whitelist
 from flask_ipfilter.blacklist import Blacklist
+from flask_ipfilter.callback import Callback
