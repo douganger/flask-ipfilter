@@ -9,16 +9,16 @@ class TestIPFilterWhiteList(unittest.TestCase):
     """Test integration between IPFilter and WhiteList ruleset."""
 
     def setUp(self):
+        """Set up the test case."""
         self.app = flask.Flask(__name__)
         self.app.add_url_rule('/', 'index', lambda: "OK")
         self.client = self.app.test_client()
         self.request_env = {"REMOTE_ADDR": "192.168.0.1"}
 
     def test_request_allowed(self):
-        """A request should be allowed when the callback function permits it."""
-
+        """A request should be allowed if the callback function permits it."""
         # Arrange
-        self.ruleset = Callback(lambda ip : True)
+        self.ruleset = Callback(lambda ip: True)
         self.ipfilter = IPFilter(self.app, ruleset=self.ruleset)
 
         # Act
@@ -29,9 +29,8 @@ class TestIPFilterWhiteList(unittest.TestCase):
 
     def test_request_blocked(self):
         """A request should be denied when the callback function denies it."""
-
         # Arrange
-        self.ruleset = Callback(lambda ip : False)
+        self.ruleset = Callback(lambda ip: False)
         self.ipfilter = IPFilter(self.app, ruleset=self.ruleset)
 
         # Act

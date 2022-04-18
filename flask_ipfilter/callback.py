@@ -1,7 +1,5 @@
 """IPFilter Whitelist."""
 
-import ipaddress
-
 
 class Callback:
     """
@@ -13,6 +11,10 @@ class Callback:
 
     def __init__(self, callback):
         """Initialize the ruleset."""
+        self.update(callback)
+
+    def update(self, callback):
+        """Update the callback function."""
         self.callback = callback
 
     def evaluate(self, ip_address):
@@ -25,5 +27,4 @@ class Callback:
 
         :returns: True if access should be allowed and False otherwise.
         """
-
         return self.callback(ip_address)
