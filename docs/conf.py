@@ -1,8 +1,8 @@
 project = 'Flask-IPFilter'
-copyright = '2019, Douglas Anger'
+copyright = '2019-2022, Douglas Anger'
 author = 'Douglas Anger'
 version = '0.0'
-release = '0.0.4'
+release = '0.0.5'
 
 extensions = [
     'sphinx.ext.autodoc',

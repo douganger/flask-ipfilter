@@ -6,11 +6,8 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/545d4bfe0bee4a47a7235b4f2205bae1)](https://www.codacy.com/gh/douganger/flask-ipfilter/dashboard)
 
 Flask-IPFilter is a simple Flask extension to limit access to a site to certain
-IP addresses. The current implementation is a minimal proof of concept with some
-important limitations:
-
--   IP addresses and networks must be whitelisted. All hosts are blocked by
-    default. There is currently no blacklist mode to allow hosts by default.
+IP addresses. The current implementation is a minimal proof of concept with one
+important limitation:
 
 -   The current implementation trusts the X-Forwarded-For header and uses the
     last IP address in that header if multiple IP addresses are listed.
