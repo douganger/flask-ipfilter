@@ -19,6 +19,8 @@ class IPFilter:
         """
         self.app = flask_app
         self.ruleset = ruleset
+        self.allow_callbacks = []
+        self.deny_callbacks = []
         if flask_app:
             self.init_app(flask_app)
 
@@ -34,6 +36,12 @@ class IPFilter:
                         will apply the filter.
         """
         flask_app.before_request(self)
+
+    def register_callback(self, callback, allowed):
+        if allowed:
+            self.allow_callbacks.append(callback)
+        else:
+            self.deny_callbacks.append(callback)
 
     def __call__(self):
         """
@@ -52,4 +60,9 @@ class IPFilter:
             ip_address = request.remote_addr
 
         if not self.ruleset.evaluate(ip_address):
+            for callback in self.deny_callbacks:
+                callback()
             raise Forbidden()
+
+        for callback in self.allow_callbacks:
+            callback()

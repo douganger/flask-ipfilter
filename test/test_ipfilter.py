@@ -119,6 +119,32 @@ class TestFlaskIPFilter(unittest.TestCase):
                         headers={"X-FORWARDED-FOR": "10.0.0.1,172.16.0.1"})
         ruleset.evaluate.assert_called_with("172.16.0.1")
 
+    def test_allowed_callback(self):
+        """
+        A callback registered for allowed requests is called.
+        """
+        ruleset = Mock()
+        ruleset.evaluate = Mock(return_value=True)
+        callback = Mock()
+        ipf = IPFilter(self.app, ruleset=ruleset)
+        ipf.register_callback(callback, allowed=True)
+
+        response = self.client.get("/")
+        callback.assert_called()
+
+    def test_denied_callback(self):
+        """
+        A callback registered for allowed requests is called.
+        """
+        ruleset = Mock()
+        ruleset.evaluate = Mock(return_value=False)
+        callback = Mock()
+        ipf = IPFilter(self.app, ruleset=ruleset)
+        ipf.register_callback(callback, allowed=False)
+
+        response = self.client.get("/")
+        callback.assert_called()
+
 
 if __name__ == "__main__":
     unittest.main()
