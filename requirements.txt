@@ -13,7 +13,7 @@ jinja2==2.10.1
 markupsafe==1.1.1
 more-itertools==7.0.0 ; python_version > '2.7'
 pluggy==0.9.0
-py==1.8.0
+py==1.10.0
 pytest-cov==2.6.1
 pytest==4.4.1
 requests==2.21.0
