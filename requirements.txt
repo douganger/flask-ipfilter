@@ -19,7 +19,7 @@ pytest==4.4.1
 requests==2.21.0
 six==1.12.0
 urllib3==1.24.2
-werkzeug==0.15.2
+werkzeug==2.2.3
 alabaster==0.7.12
 astroid==2.2.5
 babel==2.6.0
